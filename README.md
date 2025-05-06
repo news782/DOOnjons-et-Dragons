@@ -49,7 +49,7 @@ Chaque personnage est défini par:
   - Halfelin
 - une classe parmi:
   - Guerrier
-  - Clerc
+  - personnages.classes.Clerc
   - Magicien
   - Roublard
 - ses caractéristiques:
@@ -97,7 +97,7 @@ Les armures lourdes lorsqu'elles sont équipées par un personnage diminuent de 
 
 
 
-#### Les classes
+#### Les personnages.classes
 - les Clercs possèdent à leur création:
   - 16 points de vie
   - un équipement de base contenant une masse d'armes, une armure d'écailles et une arbalète légère
@@ -210,7 +210,7 @@ Donjon 2:
 
 ********************************************************************************
 Tour 3:
-   And   Andry (Naine Clerc, 15/16)
+   And   Andry (Naine personnages.classes.Clerc, 15/16)
    X(    Demogorgon (25/45)
    Dar   Darvin (Humain Guerrier, 13/20)
 -> Cae   Caelynn (Elfe Magicienne, 10/12)
@@ -287,7 +287,7 @@ Le dernier rendu sera évalué en tant que rendu final.
 Chaque rendu doit contenir :
 
 - un programme qui compile dont les sources sont dans le répertoire `src/`,
-- un diagramme de classes à jour placé dans le répertoire `uml/` ayant pour nom `semaine<numero>.puml`,
+- un diagramme de personnages.classes à jour placé dans le répertoire `uml/` ayant pour nom `semaine<numero>.puml`,
 
 La structure du dépôt git doit être la suivante :
 ```bash
@@ -308,7 +308,7 @@ La structure du dépôt git doit être la suivante :
 
 Seront évalués :
 
-- Diagramme de classes complet de la phase 1
+- Diagramme de personnages.classes complet de la phase 1
   - respect des conventions UML
 - Code
   - cohérence avec l'UML
