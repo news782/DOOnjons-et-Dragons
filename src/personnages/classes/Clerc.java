@@ -1,9 +1,12 @@
 package personnages.classes;
 
 import Utils.Util;
-import personnages.Personnage;
+import personnages.*;
 import personnages.Races;
-import java.util.Random;
+import personnages.equipement.*;
+
+import java.util.ArrayList;
+
 
 public class Clerc implements Personnage
 {
@@ -14,8 +17,10 @@ public class Clerc implements Personnage
     private int _dexterite;
     private int _vitesse;
     private int _initiative;
-    //private ArrayList<Armes> _armes;
-    //private ArrayList<Armure> _armures;
+    private ArrayList<Arme> _armes;
+    private ArrayList<Armure> _armures;
+    private Arme _arme;
+    private Armure _armure;
 
     public Clerc(String nom, Races race)
     {
