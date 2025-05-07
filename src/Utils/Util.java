@@ -6,6 +6,11 @@ import java.util.Random;
 
 public class Util
 {
+    /***
+     * @param nbr nombre de jets
+     * @param faces nombre de faces des dés
+     * @return le total des jets de dés
+     */
     public static int jeterDeDes(int nbr, int faces)
     {
         int total = 0;
@@ -20,6 +25,11 @@ public class Util
         return total;
     }
 
+    /***
+     *
+     * @param race la race du personnage
+     * @return Le bonus de dexterité par rapport à sa Race
+     */
     public static int getDexteritePerRace(Races race)
     {
         if(race == Races.ELFES)
@@ -39,6 +49,12 @@ public class Util
         return 0;
     }
 
+
+    /***
+     *
+     * @param race La race du personnage
+     * @return Le bonus de Force par rapport à sa Race
+     */
     public static int getForcePerRace(Races race)
     {
         if(race == Races.NAINS)
@@ -54,6 +70,12 @@ public class Util
         return 0;
     }
 
+
+    /**
+     *
+     * @param race la Race du personnage
+     * @return Le bonus de Vitesse par rapport à la Race du personnage
+     */
     public static int getVitessePerRace(Races race)
     {
         if(race == Races.HALFELINS || race == Races.HUMAINS)
