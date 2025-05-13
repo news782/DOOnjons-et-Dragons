@@ -10,4 +10,14 @@ public class Armure
         _nom = nom;
         _classe = classe;
     }
+
+    public String get_nom()
+    {
+        return _nom;
+    }
+
+    private int get_classe()
+    {
+        return _classe;
+    }
 }
