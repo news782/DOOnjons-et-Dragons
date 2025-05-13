@@ -19,7 +19,7 @@ public class Util
         for(int i = 0; i < nbr; i++)
         {
             lancer = new Random().nextInt(faces) + 1;
-            //System.out.println("Vous avez eu " + lancer);
+            //System.out.println("Vous avez eu " + lancer) ;
             total += lancer;
         }
         return total;

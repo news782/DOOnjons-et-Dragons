@@ -3,6 +3,7 @@ import personnages.Races;
 import personnages.classes.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -36,10 +37,7 @@ public class Main {
 
             System.out.println("Entrez votre pseudo : ");
             String nom = sc.nextLine();
-
-
         }
-
         return true;
     }
 }
