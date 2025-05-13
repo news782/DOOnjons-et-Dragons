@@ -31,7 +31,8 @@ public class Clerc implements Personnage
         this._dexterite = Util.getDexteritePerRace(race) + Util.jeterDeDes(4,4) + 3;
         this._vitesse = Util.getVitessePerRace(race) + Util.jeterDeDes(4,4) + 3;
 
-        /* Ajouter dans les constructeurs les armes, armure et équipements*/
+        /* Ajouter dans les constructeurs les armes, armure et équipements
+        * tete de neuilles frr*/
     }
 
 }
