@@ -12,6 +12,7 @@ public class Monstre {
     private int dexterite;
     private int classeArmure;
     private int initiative;
+    private int pdvMax;
 
     public Monstre(String espece, int numero, String attaqueNom, int porteeAttaque, String degatsAttaque,
                    int pointsDeVie, int force, int dexterite, int classeArmure, int initiative) {
@@ -25,6 +26,7 @@ public class Monstre {
         this.dexterite = dexterite;
         this.classeArmure = classeArmure;
         this.initiative = initiative;
+        this.pdvMax = pointsDeVie;
     }
 
     public String getNom() {return espece + " " + numero;}
@@ -38,6 +40,9 @@ public class Monstre {
     public int getDexterite() {return dexterite;}
     public int getClasseArmure() {return classeArmure;}
     public int getInitiative() {return initiative;}
+    public int getPointsDeVieMax(){return pdvMax;}
+    //string getPointsDeVieMax à implémenter
+
 }
 
 
