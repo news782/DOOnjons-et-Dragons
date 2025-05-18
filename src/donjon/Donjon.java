@@ -40,17 +40,17 @@ public class Donjon {
 
     public void ajouterObstacle(int x, int y) {
         Case c = getCase(x,y);
-        if(c!=null) c.setObstacle(true);
+        if(c!=null) c.setobstacle(true);
     }
 
     public void ajouterMonstre(Monstre monstre, int x, int y) {
         monstres.add(monstre);
-        getCase(x, y).setMonstre(monstre);
+        getCase(x, y).setmonstre(monstre);
     }
 
     public void ajouterEquipement(Equipement equipement, int x, int y) {
         equipements.add(equipement);
-        getCase(x, y).setEquipement(equipement);
+        getCase(x, y).setequipement(equipement);
     }
 
     public void afficher() {
