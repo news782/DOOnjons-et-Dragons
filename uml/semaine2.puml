@@ -1,0 +1,142 @@
+@startuml
+
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+skinparam classFontStyle Bold
+hide empty members
+
+package src {
+
+    class Main {
+        +{static} main(args: String[*])
+    }
+
+    abstract class Equipement <<abstract>> {
+        - m_nom : String
+        + <<create>> Equipement(nom: String)
+        + getNom() : String
+    }
+
+    class Arme extends Equipement {
+        - m_degats : String
+        - m_portee : Integer
+        - m_estDistance : Boolean
+        + <<create>> Arme(nom: String, degats: String, portee: Integer, estDistance: Boolean)
+        + getDegats() : String
+        + getPortee() : Integer
+        + isEstDistance() : Boolean
+    }
+
+    class Armure extends Equipement {
+        - m_classeArmure : Integer
+        - m_estLegere : Boolean
+        + <<create>> Armure(nom: String, classeArmure: Integer, estLegere: Boolean)
+        + getClasseArmure() : Integer
+        + isEstLegere() : Boolean
+    }
+
+    class Personnage {
+        - m_nom : String
+        - m_race : Race
+        - m_classe : Classe
+        - m_inventaire : Equipement[*]
+        - m_force : Integer
+        - m_dexterite : Integer
+        - m_vitesse : Integer
+        - m_initiative : Integer
+        - m_pointsDeVie : Integer
+        + <<create>> Personnage(nom: String, race: Integer, classe: Integer)
+        + afficherCaracteristiques()
+        + setPointsDeVie(pointsDeVie: Integer)
+        + perdrePointsDeVie(perte: Integer)
+        + getInitiative() : Integer
+        + getInventaire() : Equipement[*]
+        + getNom() : String
+        + getRace() : Race
+        + getClasse() : Classe
+        + getPointsDeVie() : Integer
+    }
+
+    class Race {
+        - m_nom : String
+        + <<create>> Race(nom: String)
+        + getNom() : String
+    }
+
+    abstract class Classe <<abstract>> {
+        - m_nom : String
+        - m_pointsDeVie : Integer
+        - m_equipement : Equipement[*]
+        + <<create>> Classe(nom: String, pointsDeVie: Integer, equipement: Equipement[*])
+        + getNom() : String
+        + getPointsDeVie() : Integer
+        + getEquipement() : Equipement[*]
+    }
+
+    class Guerrier extends Classe {
+        + <<create>> Guerrier()
+    }
+    class Clerc extends Classe {
+        + <<create>> Clerc()
+    }
+    class Magicien extends Classe {
+        + <<create>> Magicien()
+    }
+    class Roublard extends Classe {
+        + <<create>> Roublard()
+    }
+
+    class Jeu {
+        - m_nombreJoueurs : Integer
+        - m_personnages : Personnage[*]
+        + setNombreJoueurs()
+        + creePersonnage()
+        + lancerTourParTour(personnages: Personnage[*])
+        + afficherPersonnages()
+    }
+
+    class MaitreDuJeu {
+        + <<create>> MaitreDuJeu()
+        + creeDonjon()
+    }
+
+    class Monstre {
+        - m_espece : String
+        - m_numero : Integer
+        - m_attaqueNom : String
+        - m_porteeAttaque : Integer
+        - m_degatsAttaque : String
+        - m_pointsDeVie : Integer
+        - m_force : Integer
+        - m_dexterite : Integer
+        - m_classeArmure : Integer
+        - m_initiative : Integer
+        + <<create>> Monstre(espece: String, numero: Integer, attaqueNom: String, porteeAttaque: Integer, degatsAttaque: String, pointsDeVie: Integer, force: Integer, dexterite: Integer, classeArmure: Integer, initiative: Integer)
+        + getEspece() : String
+        + getNumero() : Integer
+        + getAttaqueNom() : String
+        + getPorteeAttaque() : Integer
+        + getDegatsAttaque() : String
+        + getPointsDeVie() : Integer
+        + getForce() : Integer
+        + getDexterite() : Integer
+        + getClasseArmure() : Integer
+        + getInitiative() : Integer
+    }
+
+    Equipement <|-- Arme
+    Equipement <|-- Armure
+    Classe <|-- Guerrier
+    Classe <|-- Clerc
+    Classe <|-- Magicien
+    Classe <|-- Roublard
+    Personnage --> Race
+    Personnage --> Classe
+    Personnage "*" o--> "0..*" Equipement : possède >
+    Jeu "*" o--> "0..*" Personnage : gère >
+    Main --> Jeu
+    Jeu --> MaitreDuJeu
+    MaitreDuJeu --> Monstre
+}
+
+@enduml
