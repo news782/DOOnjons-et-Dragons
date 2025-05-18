@@ -11,132 +11,229 @@ package src {
         +{static} main(args: String[*])
     }
 
-    abstract class Equipement <<abstract>> {
-        - m_nom : String
-        + <<create>> Equipement(nom: String)
-        + getNom() : String
+    package DD {
+
+        class Jeu {
+            - m_nombreJoueurs : Integer
+            - m_personnages : Personnage[*]
+            + setNombreJoueurs()
+            + creePersonnage()
+            + lancerTourParTour(personnages: Personnage[*])
+            + afficherPersonnages()
+            + lancerJeu(maitreDuJeu: MaitreDuJeu)
+        }
+
+        class MaitreDuJeu {
+            - m_donjons : Donjon[*]
+            + <<create>> MaitreDuJeu()
+            + creeDonjon()
+            + getDonjon() : Donjon[*]
+        }
     }
 
-    class Arme extends Equipement {
-        - m_degats : String
-        - m_portee : Integer
-        - m_estDistance : Boolean
-        + <<create>> Arme(nom: String, degats: String, portee: Integer, estDistance: Boolean)
-        + getDegats() : String
-        + getPortee() : Integer
-        + isEstDistance() : Boolean
+    package donjon {
+
+        class Case {
+            - m_x : Integer
+            - m_y : Integer
+            - m_obstacle : Boolean
+            - m_monstre : Monstre
+            - m_equipement : Equipement
+            - m_joueur : Personnage
+            + <<create>> Case(x: Integer, y: Integer, obstacle: Boolean)
+            + estLibre() : Boolean
+            + setObstacle(obstacle: Boolean)
+            + setMonstre(monstre: Monstre)
+            + setJoueur(joueur: Personnage)
+            + setEquipement(equipement: Equipement)
+            + getJoueur() : Personnage
+            + getMonstre() : Monstre
+            + toString() : String <<override>>
+        }
+
+        class Donjon {
+            - m_largeur : Integer
+            - m_hauteur : Integer
+            - m_carte : Case[*]
+            - m_personnages : Personnage[*]
+            - m_monstres : Monstre[*]
+            - m_equipements : Equipement[*]
+            - description : String
+            + <<create>> Donjon(largeur: Integer, hauteur: Integer)
+            + initialiserCarteVide()
+            + getCase(x: Integer, y: Integer) : Case
+            + ajouterObstacle(x: Integer, y: Integer)
+            + ajouterMonstre(monstre: Monstre, x: Integer, y: Integer)
+            + ajouterEquipement(equipement: Equipement, x: Integer, y: Integer)
+            + afficher()
+            + getPersonnages() : Personnage[*]
+            + getMonstres() : Monstre[*]
+            + getEquipements() : Equipement[*]
+            + getLargeur() : Integer
+        }
     }
 
-    class Armure extends Equipement {
-        - m_classeArmure : Integer
-        - m_estLegere : Boolean
-        + <<create>> Armure(nom: String, classeArmure: Integer, estLegere: Boolean)
-        + getClasseArmure() : Integer
-        + isEstLegere() : Boolean
+    package Equipement {
+
+        abstract class Equipement {
+            - nom : String
+            + <<create>> Equipement(nom: String)
+            + getNom() : String
+        }
+
+        class Arme {
+            - m_degat : String
+            - m_portee : Integer
+            - m_estDistance : Boolean
+            + <<create>> Arme(nom: String, degat: String, portee: Integer, estDistance: Boolean)
+            + getDegats() : String
+            + getPortee() : Integer
+            + estDistance() : Boolean
+        }
+
+        class Armes {
+            + getToutesLesArmes() : Arme[*]
+        }
+
+        class Armure {
+            - classeArmure : Integer
+            - estLegere : Boolean
+            + <<create>> Armure(nom: String, classeArmure: Integer, estLegere: Boolean)
+            + getClasseArmure() : Integer
+            + estLeger() : Boolean
+        }
+
+        class Armures {
+            + getToutesLesArmures() : Armure[*]
+        }
     }
 
-    class Personnage {
-        - m_nom : String
-        - m_race : Race
-        - m_classe : Classe
-        - m_inventaire : Equipement[*]
-        - m_force : Integer
-        - m_dexterite : Integer
-        - m_vitesse : Integer
-        - m_initiative : Integer
-        - m_pointsDeVie : Integer
-        + <<create>> Personnage(nom: String, race: Integer, classe: Integer)
-        + afficherCaracteristiques()
-        + setPointsDeVie(pointsDeVie: Integer)
-        + perdrePointsDeVie(perte: Integer)
-        + getInitiative() : Integer
-        + getInventaire() : Equipement[*]
-        + getNom() : String
-        + getRace() : Race
-        + getClasse() : Classe
-        + getPointsDeVie() : Integer
+    package monstres {
+
+        class Monstre {
+            - espece : String
+            - numero : Integer
+            - attaqueNom : String
+            - porteeAttaque : Integer
+            - degatsAttaque : String
+            - pointsDeVie : Integer
+            - force : Integer
+            - dexterite : Integer
+            - classeArmure : Integer
+            - initiative : Integer
+            - pdvMax : Integer
+            + <<create>> Monstre(...)
+            + getNom() : String
+            + getEspece() : String
+            + getNumero() : Integer
+            + getAttaqueNom() : String
+            + getPorteeAttaque() : Integer
+            + getDegatsAttaque() : String
+            + getPointsDeVie() : Integer
+            + getForce() : Integer
+            + getDexterite() : Integer
+            + getClasseArmure() : Integer
+            + getInitiative() : Integer
+            + getPointsDeVieMax() : Integer
+        }
     }
 
-    class Race {
-        - m_nom : String
-        + <<create>> Race(nom: String)
-        + getNom() : String
+    package personnages {
+
+        abstract class Classe {
+            - m_nom : String
+            - m_pointsDeVie : Integer
+            - m_equipement : Equipement[*]
+            + <<create>> Classe(nom: String, pointsDeVie: Integer, equipement: Equipement[*])
+            + getNom() : String
+            + getPointsDeVie() : Integer
+            + getEquipement() : Equipement[*]
+        }
+
+        class Clerc {
+            + <<create>> Clerc()
+        }
+
+        class Guerrier {
+            + <<create>> Guerrier()
+        }
+
+        class Roublard {
+            + <<create>> Roublard()
+        }
+
+        class Magicien {
+            + <<create>> Magicien()
+        }
+
+        class Personnage {
+            - nom : String
+            - race : Race
+            - classe : Classe
+            - inventaire : Equipement[*]
+            - force : Integer
+            - dexterite : Integer
+            - vitesse : Integer
+            - initiative : Integer
+            - pointsDeVie : Integer
+            + <<create>> Personnage(nom: String, race: Integer, classe: Integer)
+            - quatreDeQuatre() : Integer
+            - bonusForce(race: Race) : Integer
+            - bonusDexterite(race: Race) : Integer
+            - bonusVitesse(race: Race) : Integer
+            - bonusInitiative(race: Race) : Integer
+            - intEnRace(race: Integer) : Race
+            - intEnClasse(classe: Integer) : Classe
+            - ajouterEquipementClasse()
+            + afficherCaracteristiques()
+            + setPointsDeVie(pointsDeVie: Integer)
+            + perdrePointsDeVie(perte: Integer)
+            + getNom() : String
+            + getRace() : Race
+            + getClasse() : Classe
+            + getPointsDeVie() : Integer
+            + getInventaire() : Equipement[*]
+            + getInitiative() : Integer
+            + getForce() : Integer
+            + getVitesse() : Integer
+            + getDexterite() : Integer
+        }
+
+        class Race {
+            - m_nom : String
+            + <<create>> Race(nom: String)
+            + getNom() : String
+        }
     }
 
-    abstract class Classe <<abstract>> {
-        - m_nom : String
-        - m_pointsDeVie : Integer
-        - m_equipement : Equipement[*]
-        + <<create>> Classe(nom: String, pointsDeVie: Integer, equipement: Equipement[*])
-        + getNom() : String
-        + getPointsDeVie() : Integer
-        + getEquipement() : Equipement[*]
-    }
+    Clerc --|> Classe
+    Guerrier --|> Classe
+    Roublard --|> Classe
+    Magicien --|> Classe
 
-    class Guerrier extends Classe {
-        + <<create>> Guerrier()
-    }
-    class Clerc extends Classe {
-        + <<create>> Clerc()
-    }
-    class Magicien extends Classe {
-        + <<create>> Magicien()
-    }
-    class Roublard extends Classe {
-        + <<create>> Roublard()
-    }
+    Arme --|> Equipement
+    Armure --|> Equipement
 
-    class Jeu {
-        - m_nombreJoueurs : Integer
-        - m_personnages : Personnage[*]
-        + setNombreJoueurs()
-        + creePersonnage()
-        + lancerTourParTour(personnages: Personnage[*])
-        + afficherPersonnages()
-    }
 
-    class MaitreDuJeu {
-        + <<create>> MaitreDuJeu()
-        + creeDonjon()
-    }
+    Jeu "1" o--> "1\n- maitreDuJeu" MaitreDuJeu : utilise >
+    Jeu "1" *--> "1..*\n- m_personnages" Personnage : contient >
+    MaitreDuJeu "1" *--> "1..*\n- m_donjons" Donjon : contient >
 
-    class Monstre {
-        - m_espece : String
-        - m_numero : Integer
-        - m_attaqueNom : String
-        - m_porteeAttaque : Integer
-        - m_degatsAttaque : String
-        - m_pointsDeVie : Integer
-        - m_force : Integer
-        - m_dexterite : Integer
-        - m_classeArmure : Integer
-        - m_initiative : Integer
-        + <<create>> Monstre(espece: String, numero: Integer, attaqueNom: String, porteeAttaque: Integer, degatsAttaque: String, pointsDeVie: Integer, force: Integer, dexterite: Integer, classeArmure: Integer, initiative: Integer)
-        + getEspece() : String
-        + getNumero() : Integer
-        + getAttaqueNom() : String
-        + getPorteeAttaque() : Integer
-        + getDegatsAttaque() : String
-        + getPointsDeVie() : Integer
-        + getForce() : Integer
-        + getDexterite() : Integer
-        + getClasseArmure() : Integer
-        + getInitiative() : Integer
-    }
+    Donjon "1" *--> "1..*\n- m_carte" Case : compose >
+    Donjon "1" o--> "0..*\n- m_monstres" Monstre : contient >
+    Donjon "1" o--> "0..*\n- m_equipements" Equipement : contient >
+    Donjon "1" o--> "0..*\n- m_personnages" Personnage : contient >
 
-    Equipement <|-- Arme
-    Equipement <|-- Armure
-    Classe <|-- Guerrier
-    Classe <|-- Clerc
-    Classe <|-- Magicien
-    Classe <|-- Roublard
-    Personnage --> Race
-    Personnage --> Classe
-    Personnage "*" o--> "0..*" Equipement : possède >
-    Jeu "*" o--> "0..*" Personnage : gère >
-    Main --> Jeu
-    Jeu --> MaitreDuJeu
-    MaitreDuJeu --> Monstre
+    Case "0..1" o--> "1\n- m_monstre" Monstre : peut contenir >
+    Case "0..1" o--> "1\n- m_equipement" Equipement : peut contenir >
+    Case "0..1" o--> "1\n- m_joueur" Personnage : peut contenir >
+
+    Classe "1" o--> "0..*\n- m_equipement" Equipement : possède >
+
+    Personnage "1" --> "1\n- race" Race : est de >
+    Personnage "1" --> "1\n- classe" Classe : appartient à >
+    Personnage "1" o--> "0..*\n- inventaire" Equipement : possède >
+
 }
 
 @enduml
