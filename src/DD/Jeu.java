@@ -11,8 +11,8 @@ import java.util.Scanner;
 
 public class Jeu {
     Scanner sc = new Scanner(System.in);
-    int nombreJoueurs;
-    ArrayList<Personnage> personnages;
+    private int nombreJoueurs;
+    private ArrayList<Personnage> personnages;
 
     public void setNombreJoueurs(){
         System.out.print("Saisir le nombre de joueurs : ");
