@@ -18,10 +18,10 @@ public class Case {
     }
 
     public boolean estLibre() {return !m_obstacle && m_monstre ==null;}
-    public void setobstacle(boolean m_obstacle) {this.m_obstacle = m_obstacle;}
-    public void setmonstre(Monstre m_monstre) {this.m_monstre = m_monstre;}
+    public void setobstacle(boolean obstacle) {this.m_obstacle = obstacle;}
+    public void setmonstre(Monstre monstre) {this.m_monstre = monstre;}
     public void setJoueur(Personnage joueur) {this.m_joueur =joueur;}
-    public void setequipement(Equipement m_equipement) {this.m_equipement = m_equipement;}
+    public void setequipement(Equipement equipement) {this.m_equipement = equipement;}
     public Personnage getJoueur(Personnage joueur) {return joueur;}
     public Monstre getMonstre(Monstre monstre) {return  monstre;}
 
