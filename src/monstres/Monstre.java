@@ -13,6 +13,9 @@ public class Monstre {
     private int classeArmure;
     private int initiative;
     private int pdvMax;
+    private int x;
+    private int y;
+
 
     public Monstre(String espece, int numero, String attaqueNom, int porteeAttaque, String degatsAttaque,
                    int pointsDeVie, int force, int dexterite, int classeArmure, int initiative) {
@@ -53,6 +56,11 @@ public class Monstre {
 
     public int getPointsDeVieMax(){return pdvMax;}
     //string getPointsDeVieMax à implémenter
+    public int getX() {return x;}
+    public void setX(int x) {this.x = x;}
+    public int getY() {return y;}
+    public void setY(int y) {this.y = y;}
+
 
 }
 

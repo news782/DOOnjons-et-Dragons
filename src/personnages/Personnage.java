@@ -14,6 +14,8 @@ public class Personnage {
     private int vitesse;
     private int initiative;
     private int pointsDeVie;
+    private int x;
+    private int y;
 
     public Personnage(String nom, int race, int classe) {
         this.nom=nom;
@@ -125,5 +127,11 @@ public class Personnage {
     public int getForce() {return force;}
     public int getVitesse() {return vitesse;}
     public int getDexterite() {return dexterite;}
+
+    //Fonction de position
+    public int getX() {return x;}
+    public void setX(int x) {this.x = x;}
+    public int getY() {return y;}
+    public void setY(int y) {this.y = y;}
 
 }
