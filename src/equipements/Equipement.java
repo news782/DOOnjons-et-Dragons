@@ -1,13 +1,18 @@
 package equipements;
 
-public abstract class Equipement {
-    private String nom;
+import interfacejeu.ContenuCase;
 
-    public Equipement(String nom) {
-        this.nom = nom;
-    }
+public interface Equipement  extends ContenuCase {
+    int getEnchante();
+    void setEnchante(int enchante);
+    String getNom();
+    String getType();
+    int getModificateurVitesse();
+    int getModificateurForce();
+    int getPortee();
+    String getDegats();
+    int getClasseArmure();
+    boolean estArme();
+    boolean estArmure();
 
-    public String getNom() {
-        return nom;
-    }
 }
