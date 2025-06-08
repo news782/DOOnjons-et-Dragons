@@ -395,48 +395,16 @@ public class Jeu {
                                             }
                                         }
                                         case "2" -> {
-                                            if (joueur.getClasse() instanceof Magicien) {
-                                                System.out.println("Cibles disponibles pour Bougie-Woogie :");
-                                                ArrayList<Entite> ciblesPossibles = participants;
-                                                for (int i = 0; i < ciblesPossibles.size(); i++)
-                                                {
-                                                    Entite e = ciblesPossibles.get(i);
-                                                    System.out.println((i+1) + " - " + e.getNom());
-                                                }
-                                                System.out.print("Entrez le numéro de la premiere cible à echanger : ");
-                                                try {
-                                                    int choix = Integer.parseInt(scanner.nextLine()) - 1;
-                                                    if (choix >= 0 && choix < ciblesPossibles.size()) {
-                                                        Entite cible1 = ciblesPossibles.get(choix);
-                                                        BoogieWoogie sort = new BoogieWoogie();
-                                                        System.out.println("Cibles disponibles pour Bougie-Woogie :");
-                                                        for (int i = 0; i < ciblesPossibles.size(); i++)
-                                                        {
-                                                            Entite e = ciblesPossibles.get(i);
-                                                            System.out.println((i+1) + " - " + e.getNom());
-                                                        }
-                                                        System.out.print("Entrez le numéro de la deuxième cible à échanger : ");
-                                                        try {
-                                                            int choix2 = Integer.parseInt(scanner.nextLine()) - 1;
-                                                            if (choix2 >= 0 && choix2 < ciblesPossibles.size()) {
-                                                                Entite cible2 = ciblesPossibles.get(choix2);
-                                                                sort.utilisermap(cible1, cible2);
-                                                                actionsRestantes--;
-                                                            } else {
-                                                                System.out.println("Numéro invalide.");
-                                                            }
-                                                        } catch (NumberFormatException e) {
-                                                            System.out.println("Entrée invalide.");
-                                                        }
-                                                    } else {
-                                                        System.out.println("Numéro invalide.");
-                                                    }
-                                                } catch (NumberFormatException e) {
-                                                    System.out.println("Entrée invalide.");
-                                                }
-                                            } else {
-                                                System.out.println("Ce sort est réservé aux magiciens.");
+                                            if(!joueur.utiliserBoogie(participants))
+                                            {
+                                                System.out.println("Le boogie Woogie n'est disponible que pour les magiciens !");
                                             }
+                                            else
+                                            {
+                                                joueur.utiliserBoogie(participants);
+                                                actionsRestantes--;
+                                            }
+
                                         }
                                         case "3" -> {
                                             if (joueur.getClasse() instanceof Magicien) {

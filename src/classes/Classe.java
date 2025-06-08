@@ -1,6 +1,10 @@
 package classes;
 
+import entite.Entite;
 import entite.Personnages.Joueur;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public abstract class Classe {
     private String m_nom;
@@ -11,6 +15,10 @@ public abstract class Classe {
         this.m_pvMax = pvDeBase;
     }
 
+    public boolean utiliserBoogieWoogie(Scanner scanner, Joueur joueur, ArrayList<Entite> participants)
+    {
+        return false;
+    }
 
     public abstract void genererEquipementDeBase(Joueur joueur);
 

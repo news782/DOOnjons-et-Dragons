@@ -12,6 +12,7 @@ import races.Races;
 import Des.*;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Scanner;
 
 public class Joueur extends Personnage implements ContenuCase, Entite {
     private Classe m_classe;
@@ -247,6 +248,7 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
 
 
 
+
     public void ramasserEquipement(map_milieu map) {
         Equipement equip = map.recupererEquipement(posX, posY);
         if (equip != null) {
@@ -321,4 +323,10 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
     }
 
 
+    public boolean utiliserBoogie(ArrayList<Entite> participants)
+    {
+        Scanner scan = new Scanner(System.in);
+
+        return this.m_classe.utiliserBoogieWoogie(scan, this, participants);
+    }
 }
