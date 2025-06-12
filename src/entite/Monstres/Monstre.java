@@ -3,7 +3,7 @@ package entite.Monstres;
 import Des.Des;
 import entite.Personnages.Joueur;
 import interfacejeu.ContenuCase;
-import interfacejeu.map_milieu;
+import interfacejeu.map;
 import entite.Entite;
 
 public class Monstre implements ContenuCase, Entite {
@@ -120,7 +120,7 @@ public class Monstre implements ContenuCase, Entite {
 
     public void addPdV(int pv) { m_pointDeVie += pv; }
 
-    public boolean setPosXY(int x, int y, map_milieu map) {
+    public boolean setPosXY(int x, int y, map map) {
         if (map.isValidPositionAndFree(x, y)) {
             this.posX = x;
             this.posY = y;

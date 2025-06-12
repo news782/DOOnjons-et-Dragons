@@ -1,23 +1,18 @@
 import classes.*;
-import equipements.Armures.ArmureLegere;
 import equipements.Equipement;
 import maitredujeux.Maitredujeux;
 import entite.Monstres.Monstre;
 import entite.Personnages.*;
-import races.*;
 import interfacejeu.*;
 import Des.*;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 
 import entite.Entite;
 import Sort.*;
 
-import javax.lang.model.util.ElementScanner6;
-import javax.swing.text.html.parser.Entity;
-import interfacejeu.map_milieu;
+import interfacejeu.map;
 
 import static equipements.GestionEq.initialiserEquipements;
 import static java.lang.System.in;
@@ -42,7 +37,7 @@ public class Jeu {
         System.out.println(credit);
 
         System.out.println("=== Choisir la map ===");
-        map_milieu map = null;
+        map map = null;
 
         boolean verif = false;
         while (!verif) {
@@ -55,15 +50,15 @@ public class Jeu {
 
             switch (reponse) {
                 case "1":
-                    map = map_milieu.map1();
+                    map = interfacejeu.map.map1();
                     verif = true;
                     break;
                 case "2":
-                    map = map_milieu.map2();
+                    map = interfacejeu.map.map2();
                     verif = true;
                     break;
                 case "3":
-                    map = map_milieu.map3();
+                    map = interfacejeu.map.map3();
                     verif = true;
                     break;
                 default:

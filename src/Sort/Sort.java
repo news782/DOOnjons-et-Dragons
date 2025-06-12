@@ -1,9 +1,6 @@
 package Sort;
 
-import interfacejeu.map_milieu;
-import entite.Monstres.Monstre;
 import entite.Personnages.Joueur;
-import entite.Personnages.Personnage;
 import entite.Entite;
 
 abstract class Sort {

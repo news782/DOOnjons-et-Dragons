@@ -2,12 +2,9 @@ package maitredujeux;
 
 import java.util.*;
 
-import Des.Des;
-import interfacejeu.ContenuCase;
-import interfacejeu.map_milieu;
+import interfacejeu.map;
 import entite.Monstres.*;
 import entite.Entite;
-import entite.Personnages.Joueur;
 
 import static Des.Des.lancerDes;
 
@@ -188,7 +185,7 @@ public class Maitredujeux {
         return valeur;
     }
 
-    public void intervenir(ArrayList<Entite> participants,map_milieu map) {
+    public void intervenir(ArrayList<Entite> participants, map map) {
         System.out.println("=== Intervention du Maître du Jeu ===");
         System.out.println("1. Commenter l'action");
         System.out.println("2. Déplacer un monstre ou un joueur");
@@ -217,7 +214,7 @@ public class Maitredujeux {
         }
     }
 
-    public void deplacerEntite(List<Entite> entites, map_milieu map) {
+    public void deplacerEntite(List<Entite> entites, map map) {
         System.out.println("=== Déplacement d'une entité ===");
         for (int i = 0; i < entites.size(); i++) {
             Entite e = entites.get(i);

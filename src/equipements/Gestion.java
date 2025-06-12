@@ -21,8 +21,8 @@ public class GestionEq {
         equipements.add(new ArmureLourde("Harnois", 12));
 
         // Armes courantes
-        equipements.add(new ArmeCourante("Bâton", "1d6"));
-        equipements.add(new ArmeCourante("Masse d'armes", "1d6"));
+        equipements.add(new ArmeDeBase("Bâton", "1d6"));
+        equipements.add(new ArmeDeBase("Masse d'armes", "1d6"));
 
         // Armes de guerre
         equipements.add(new ArmeDeGuerre("Épée longue", "1d8"));

@@ -1,6 +1,6 @@
 package entite;
 
-import interfacejeu.map_milieu;
+import interfacejeu.map;
 
 public interface Entite {
     String affichageClass();
@@ -9,7 +9,7 @@ public interface Entite {
 
     int getPosX();
     int getPosY();
-    boolean setPosXY(int x, int y, map_milieu map);
+    boolean setPosXY(int x, int y, map map);
     void setPosSansVerif(int x, int y);
     String getNom();
     String AfficherPVDB();

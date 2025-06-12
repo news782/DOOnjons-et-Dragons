@@ -1,7 +1,5 @@
 package interfacejeu;
 
-import equipements.Armes.ArmeCourante;
-import equipements.Armures.ArmureLegere;
 import equipements.Equipement;
 import equipements.GestionEq;
 import entite.Monstres.Monstre;
@@ -12,13 +10,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class map_milieu {
+public class map {
     private Case[][] map;
     private int rows;
     private int cols;
     private String letters;
 
-    public map_milieu(int rows, int cols) {
+    public map(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
         this.map = new Case[rows][cols];
@@ -194,8 +192,8 @@ public class map_milieu {
         System.out.println("    * Equipement   |   [ ] Obstacle");
     }
 
-    public static map_milieu map1() {
-        map_milieu map = new map_milieu(15, 15);
+    public static interfacejeu.map map1() {
+        interfacejeu.map map = new map(15, 15);
 
         // Quelques arbres (obstacles)
         map.addObstacle(2, 3);
@@ -214,8 +212,8 @@ public class map_milieu {
         return map;
     }
 
-    public static map_milieu map2() {
-        map_milieu map = new map_milieu(25, 25);
+    public static interfacejeu.map map2() {
+        interfacejeu.map map = new map(25, 25);
 
         // Quelques rochers (obstacles)
         map.addObstacle(5, 6);
@@ -238,9 +236,9 @@ public class map_milieu {
         return map;
     }
 
-    public static map_milieu map3() {
+    public static interfacejeu.map map3() {
 
-        map_milieu map = new map_milieu(20, 20);
+        interfacejeu.map map = new map(20, 20);
 
         // Quelques rochers (obstacles)
         map.addObstacle(3, 5);

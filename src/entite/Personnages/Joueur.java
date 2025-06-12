@@ -4,7 +4,7 @@ import classes.Classe;
 import equipements.Equipement;
 import equipements.GestionEq;
 import interfacejeu.ContenuCase;
-import interfacejeu.map_milieu;
+import interfacejeu.map;
 import entite.Monstres.*;
 import entite.Entite;
 import races.Races;
@@ -206,7 +206,7 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
 
 
 
-    public void seDeplacer(String direction, map_milieu map, int nbCase) {
+    public void seDeplacer(String direction, map map, int nbCase) {
         int newX = posX;
         int newY = posY;
 
@@ -249,7 +249,7 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
 
 
 
-    public void ramasserEquipement(map_milieu map) {
+    public void ramasserEquipement(map map) {
         Equipement equip = map.recupererEquipement(posX, posY);
         if (equip != null) {
             ajouterEquipement(equip);
@@ -266,7 +266,7 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
     public int getPosY() {return this.posY;
     }
 
-    public boolean setPosXY(int x, int y,map_milieu map) {
+    public boolean setPosXY(int x, int y, map map) {
         if (map.isValidPositionAndFree(x,y)) {
             this.posX = x;
             this.posY = y;

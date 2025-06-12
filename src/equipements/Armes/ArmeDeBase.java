@@ -1,9 +1,9 @@
 package equipements.Armes;
 
-public class ArmeCourante extends Arme {
+public class ArmeDeBase extends Arme {
 
 
-    public ArmeCourante(String nom, String degats) {
+    public ArmeDeBase(String nom, String degats) {
         super(nom, degats, 1, "Arme courante");
     }
 
