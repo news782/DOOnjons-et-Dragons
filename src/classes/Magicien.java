@@ -3,7 +3,7 @@ package classes;
 import Sort.BoogieWoogie;
 import entite.Entite;
 import equipements.Equipement;
-import equipements.GestionEq;
+import equipements.Gestion;
 import entite.Personnages.Joueur;
 
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ public class Magicien extends Classe {
     }
 
     @Override
-    public void genererEquipementDeBase(Joueur joueur) {
-        List<Equipement> equipementsDisponibles = GestionEq.initialiserEquipements();
+    public void EquipementClasse(Joueur joueur) {
+        List<Equipement> equipementsDisponibles = Gestion.initialiserEquipements();
         for (Equipement equipement : equipementsDisponibles) {
             if (equipement.getNom().equals("Bâton") ||
                     equipement.getNom().equals("Fronde")){
@@ -31,7 +31,7 @@ public class Magicien extends Classe {
     }
 
     @Override
-    public boolean utiliserBoogieWoogie(Scanner scanner, Joueur joueur, ArrayList<Entite> participants) {
+    public boolean Boogie(Scanner scanner, Joueur joueur, ArrayList<Entite> participants) {
         System.out.println("Cibles disponibles pour Bougie-Woogie :");
         for (int i = 0; i < participants.size(); i++) {
             System.out.println((i + 1) + " - " + participants.get(i).getNom());

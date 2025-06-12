@@ -62,12 +62,12 @@ public class Maitredujeux {
             return monstre;
         } else if (choix >= 5 && choix < index) {
             String especePerso = m_especesPerso.get(choix - 5);
-            return creerMonstreEspece(especePerso);
+            return creerMonstrePerso(especePerso);
         }
         return null;
     }
 
-    private Monstre creerMonstreEspece(String espece) {
+    private Monstre creerMonstrePerso(String espece) {
         m_compteurMonstres.putIfAbsent(espece, 0);
         int numero = m_compteurMonstres.get(espece) + 1;
         m_compteurMonstres.put(espece, numero);

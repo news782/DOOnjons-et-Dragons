@@ -7,7 +7,7 @@ left to right direction
 package "Jeu" {
     class Main
     class Jeu
-    class CreationPersonnage
+    class Creation
 }
 
 '--- Personnages et Entités ---
@@ -38,7 +38,7 @@ package "Types" {
 '--- Equipements ---
 package "Equipements" {
     interface Equipement
-    class GestionEq
+    class Gestion
     abstract class Arme
     class ArmeCourante
     class ArmeDeGuerre
@@ -68,7 +68,7 @@ package "MapJeu" {
     class Map
     class Case
     interface ContenuCase
-    class BarreHaut
+    class Barre
     class Obstacle
     Map --> Case
     Case --> ContenuCase
@@ -110,13 +110,13 @@ Main --> Classe
 Main --> Race
 Main --> MaitreDuJeu
 Main --> Map
-Main --> BarreHaut
+Main --> Barre
 Main --> Des
 Main --> Sort
 
-CreationPersonnage --> Joueur : créer
-CreationPersonnage --> Race
-CreationPersonnage --> Classe
+Creation --> Joueur : créer
+Creation --> Race
+Creation --> Classe
 
 Joueur --> Map
 Joueur --> Des

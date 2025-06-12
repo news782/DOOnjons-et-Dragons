@@ -7,12 +7,12 @@ public class ArmeDeGuerre extends Arme {
     }
 
     @Override
-    public int getModificateurVitesse() {
+    public int getVitesseArme() {
         return -2;  // Réduction de la vitesse
     }
 
     @Override
-    public int getModificateurForce() {
+    public int getForceArme() {
         return 4;   // Augmentation de la force
     }
 

@@ -5,7 +5,7 @@ import entite.Entite;
 import java.util.List;
 
 
-public class BarreHaut {
+public class Barre {
     private static final String barre = "--------------------------------------------------------------------------------"; // 1
 
     /**

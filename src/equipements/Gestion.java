@@ -7,7 +7,7 @@ import entite.Personnages.Personnage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestionEq {
+public class Gestion {
 
     public static List<Equipement> initialiserEquipements() {
         List<Equipement> equipements = new ArrayList<>();

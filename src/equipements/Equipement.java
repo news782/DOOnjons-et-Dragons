@@ -7,8 +7,8 @@ public interface Equipement  extends ContenuCase {
     void setEnchante(int enchante);
     String getNom();
     String getType();
-    int getModificateurVitesse();
-    int getModificateurForce();
+    int getVitesseArme();
+    int getForceArme();
     int getPortee();
     String getDegats();
     int getClasseArmure();

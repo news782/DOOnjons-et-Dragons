@@ -15,18 +15,18 @@ public abstract class Classe {
         this.m_pvMax = pvDeBase;
     }
 
-    public boolean utiliserBoogieWoogie(Scanner scanner, Joueur joueur, ArrayList<Entite> participants)
+    public boolean Boogie(Scanner scanner, Joueur joueur, ArrayList<Entite> participants)
     {
         return false;
     }
 
-    public abstract void genererEquipementDeBase(Joueur joueur);
+    public abstract void EquipementClasse(Joueur joueur);
 
     public String getNom() {
         return m_nom;
     }
 
-    public int getPvDeBase() {
+    public int getPvM() {
         return m_pvMax;
     }
 

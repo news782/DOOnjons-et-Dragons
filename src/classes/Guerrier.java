@@ -1,7 +1,7 @@
 package classes;
 
 import equipements.Equipement;
-import equipements.GestionEq;
+import equipements.Gestion;
 import entite.Personnages.Joueur;
 import java.util.List;
 
@@ -11,8 +11,8 @@ public class Guerrier extends Classe {
     }
 
     @Override
-    public void genererEquipementDeBase(Joueur joueur) {
-        List<Equipement> equipementsDisponibles = GestionEq.initialiserEquipements();
+    public void EquipementClasse(Joueur joueur) {
+        List<Equipement> equipementsDisponibles = Gestion.initialiserEquipements();
         for (Equipement equipement : equipementsDisponibles) {
             if (equipement.getNom().equals("Cotte de mailles") ||
                     equipement.getNom().equals("Épée longue") ||

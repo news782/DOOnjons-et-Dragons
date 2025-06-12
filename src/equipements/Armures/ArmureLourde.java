@@ -17,7 +17,7 @@ public class ArmureLourde extends Armure {
     }
 
     @Override
-    public int getModificateurVitesse() {
+    public int getVitesseArme() {
         return -4;  // Réduction de la vitesse
     }
 

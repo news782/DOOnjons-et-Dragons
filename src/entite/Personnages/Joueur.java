@@ -2,7 +2,7 @@ package entite.Personnages;
 
 import classes.Classe;
 import equipements.Equipement;
-import equipements.GestionEq;
+import equipements.Gestion;
 import interfacejeu.ContenuCase;
 import interfacejeu.map;
 import entite.Monstres.*;
@@ -23,15 +23,15 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
 
 
     public Joueur(String nom, Classe classe, Races race) {
-        super(nom, classe.getPvDeBase(), 0, 0, 0, 0);
+        super(nom, classe.getPvM(), 0, 0, 0, 0);
         this.m_classe = classe;
         this.m_race = race;
         this.m_inventaire = new ArrayList<>();
 
 
         race.appliquerBonus(this);
-        classe.genererEquipementDeBase(this);
-        GestionEq.equiperPremiereArmeEtArmure(this, getEquipements());
+        classe.EquipementClasse(this);
+        Gestion.equiperPremiereArmeEtArmure(this, getEquipements());
     }
 
     public void attaquer(Monstre cible) {
@@ -85,21 +85,21 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
         // Vérifier si l'équipement est déjà équipé et le retirer si nécessaire
         if (equipement.estArme()) {
             if (equipementEquipe[0] != null) {
-                setForce(getForce() - equipementEquipe[0].getModificateurForce());
-                setVitesse(getVitesse() - equipementEquipe[0].getModificateurVitesse());
+                setForce(getForce() - equipementEquipe[0].getForceArme());
+                setVitesse(getVitesse() - equipementEquipe[0].getVitesseArme());
                 getEquipements().add(equipementEquipe[0]);
             }
             equipementEquipe[0] = equipement;
         } else if (equipement.estArmure()) {
             if (equipementEquipe[1] != null) {
-                setVitesse(getVitesse() - equipementEquipe[1].getModificateurVitesse());
+                setVitesse(getVitesse() - equipementEquipe[1].getVitesseArme());
                 getEquipements().add(equipementEquipe[1]);
             }
             equipementEquipe[1] = equipement;
         }
 
-        setForce(getForce() + equipement.getModificateurForce());
-        setVitesse(getVitesse() + equipement.getModificateurVitesse());
+        setForce(getForce() + equipement.getForceArme());
+        setVitesse(getVitesse() + equipement.getVitesseArme());
 
         afficherEquipement(getNom(), equipement.getNom(), forceAvant, getForce(), vitesseAvant, getVitesse(), Optional.of(equipement.getEnchante()));
     }
@@ -196,7 +196,7 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
     }
 
     public void soignerComplet() {
-        this.addPdV((this.getPointDeVie() - this.getPointDeVie()) + getClasse().getPvDeBase());
+        this.addPdV((this.getPointDeVie() - this.getPointDeVie()) + getClasse().getPvM());
     }
 
 
@@ -277,7 +277,7 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
 
     public int getPVdebase()
     {
-        return this.m_classe.getPvDeBase();
+        return this.m_classe.getPvM();
     }
 
     @Override
@@ -327,6 +327,6 @@ public class Joueur extends Personnage implements ContenuCase, Entite {
     {
         Scanner scan = new Scanner(System.in);
 
-        return this.m_classe.utiliserBoogieWoogie(scan, this, participants);
+        return this.m_classe.Boogie(scan, this, participants);
     }
 }

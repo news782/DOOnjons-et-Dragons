@@ -1,7 +1,7 @@
 package interfacejeu;
 
 import equipements.Equipement;
-import equipements.GestionEq;
+import equipements.Gestion;
 import entite.Monstres.Monstre;
 import entite.Personnages.Joueur;
 
@@ -293,7 +293,7 @@ public class map {
     }
 
     public void addRandomEquipment(int row, int col) {
-        List<Equipement> equipements = GestionEq.initialiserEquipements();
+        List<Equipement> equipements = Gestion.initialiserEquipements();
         if (equipements.isEmpty()) return;
 
         Random random = new Random();

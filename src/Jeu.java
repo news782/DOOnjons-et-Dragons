@@ -14,7 +14,7 @@ import Sort.*;
 
 import interfacejeu.map;
 
-import static equipements.GestionEq.initialiserEquipements;
+import static equipements.Gestion.initialiserEquipements;
 import static java.lang.System.in;
 
 public class Jeu {
@@ -177,7 +177,7 @@ public class Jeu {
             }
             participants.sort((a, b) -> Integer.compare(initiativeMap.get(b), initiativeMap.get(a)));
 
-            BarreHaut barre = new BarreHaut();
+            Barre barre = new Barre();
             System.out.println("\n=== Début du donjon ===");
 
             while (true) {

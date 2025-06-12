@@ -48,12 +48,12 @@ public abstract class Arme implements Equipement{
     }
 
     @Override
-    public int getModificateurVitesse() {
+    public int getVitesseArme() {
         return 0;
     }
 
     @Override
-    public int getModificateurForce() {
+    public int getForceArme() {
         return 0;
     }
 

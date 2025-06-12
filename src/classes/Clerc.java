@@ -2,7 +2,7 @@ package classes;
 
 import java.util.List;
 import equipements.Equipement;
-import equipements.GestionEq;
+import equipements.Gestion;
 import entite.Personnages.Joueur;
 
 public class Clerc extends Classe{
@@ -12,8 +12,8 @@ public class Clerc extends Classe{
     }
 
     @Override
-    public void genererEquipementDeBase(Joueur joueur) {
-        List<Equipement> equipementsDisponibles = GestionEq.initialiserEquipements();
+    public void EquipementClasse(Joueur joueur) {
+        List<Equipement> equipementsDisponibles = Gestion.initialiserEquipements();
         for (Equipement equipement : equipementsDisponibles) {
             if (equipement.getNom().equals("Masse d'armes") ||
                     equipement.getNom().equals("Armure d'écailles") ||
