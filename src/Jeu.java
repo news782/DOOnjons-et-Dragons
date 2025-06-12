@@ -82,7 +82,7 @@ public class Jeu {
             }
 
 
-            Joueur joueur = CreationPersonnage.creerPersonnage(scanner, numeroJoueur);
+            Joueur joueur = Creation.creerPersonnage(scanner, numeroJoueur);
             joueurs.add(joueur);
             participants.add(joueur);
             participants2.add(joueur);

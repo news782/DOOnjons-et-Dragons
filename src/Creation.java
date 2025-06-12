@@ -4,7 +4,7 @@ import races.*;
 
 import java.util.Scanner;
 
-public class CreationPersonnage {
+public class Creation {
 
     public static Joueur creerPersonnage(Scanner scanner, int numeroJoueur) {
         System.out.println("\n--- Joueur " + numeroJoueur + " ---");
